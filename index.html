@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<script>
+	function computerSelection() {
+		let random = Math.floor(Math.random() * Math.floor(3));
+		switch (random) {
+			case 0:
+				return "rock";
+				break;
+			case 1:
+				return "scissor";
+				break;
+			case 2:
+				return "paper";
+				break;
+		}
+	}
+		function playRound(playerSelection, computerSelection, score) {
+		//if tie
+		if (playerSelection == "rock" && computerSelection == "rock" || playerSelection == "scissor" && computerSelection == "scissor" || playerSelection == "paper" && computerSelection == "paper") {
+			return "Tie, computer chose " + computerSelection;
+		}
+		//if Player chooses Rock and no tie
+		else if(playerSelection == "rock" && computerSelection == "scissor") {
+			score++;
+			return "You Win! Rock beats Scissor";
+		}
+		else if(playerSelection == "rock" && computerSelection == "paper") {
+			return "You Lose! Paper beats Rock";
+		}
+		//if Player chooses Scissor and no tie
+		else if(playerSelection == "scissor" && computerSelection == "rock") {
+			return "You Lose! Rock beats Scissor";
+		}
+		else if(playerSelection == "scissor" && computerSelection == "paper") {
+			score++;
+			return "You Win! Scissor beats Paper";
+		}
+		//if Player chooses Paper and no tie
+		else if(playerSelection == "paper" && computerSelection == "rock") {
+			score++;
+			return "You Win! Paper beats Rock";
+		}
+		else if(playerSelection == "paper" && computerSelection == "scissor") {
+			return "You Lose! Scissor beats Paper";
+		}
+		else {
+			console.log("Please enter valid data");
+			}
+		
+	}
+	function playerSelection() {
+		let input = window.prompt("Scissor, Paper, Rock");
+		input = input.toLowerCase()
+		if (input == "scissor" || input == "paper" || input == "rock") {
+			return input
+		} else {
+			playerSelection();
+		}
+	}
+	function game() {
+		let score = 0;
+		let counter = 0;
+		while(counter <= 5){
+			console.log(playRound(playerSelection(), computerSelection(), score));
+			counter++;
+		}
+		console.log("You scored " + score + " points.");
+		
+		
+	}
+</script>
