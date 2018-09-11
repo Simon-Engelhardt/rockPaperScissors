@@ -75,3 +75,5 @@ function game() {
     }
     console.log(`You scored ${score} points.`);
 }
+//starts the game
+game();
