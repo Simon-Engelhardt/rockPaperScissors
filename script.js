@@ -1,3 +1,5 @@
+//starts the game
+game();
 function computerSelection() {
     let random = Math.floor(Math.random() * Math.floor(3));
     switch (random) {
@@ -75,5 +77,3 @@ function game() {
     }
     console.log(`You scored ${score} points.`);
 }
-//starts the game
-game();
